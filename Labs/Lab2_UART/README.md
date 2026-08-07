@@ -4,6 +4,18 @@
 
 Keep a digital log of your work using the readme file where appropriate.
 
+Digital log:
+
+
+Q 1.1: What is the purpose of each of the following parameters and bits?
+i) The start bit: initiates the reciever to alert that a new data frame is beginning
+ii) The parity bit: Error detection 
+iii) The stop bits: alerts the end of a data frame 
+iv) The baud rate: rate of bits transmission per second
+
+
+
+
 # Pseudo Code for Pre-Lab
 
 - You can use a simple algorithm that iterates through all the numbers up to 300, and checks if they can be exactly divided by numbers smaller than it using the modulo operator
