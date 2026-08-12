@@ -7,7 +7,7 @@ Keep a digital log of your work using the readme file where appropriate.
 # Digital log:
 
 # Q1.1: What is the purpose of each of the following parameters and bits?
-i) The start bit: initiates the reciever to alert that a new data frame is beginning
+i) The start bit: alerts to the reciever that a new data frame is beginning
 ii) The parity bit: Error detection 
 iii) The stop bits: alerts the end of a data frame 
 iv) The baud rate: rate of bits transmission per second
@@ -16,8 +16,8 @@ iv) The baud rate: rate of bits transmission per second
 | 1. Setting Name | 2. Register and Bits | 3. Purpose | 4. Do we need it? | 5. Initialisation / Runtime |
 |---|---|---|---|---|
 | 1. Receive Complete | 2. UCSR0A, RXC0 (Bit 7) | 3. Flag indicating that a complete packet has been received and is ready to be read | 4. No | 5. - |
-    | 1. Tx Data Register Empty | 2. UCSR0A, UDRE0 (Bit 5) | 3. Flag indicating that the transmit register is ready for new data | 4. Yes | 5. Runtime |
-    | 1. Transmit Complete | 2. UCSR0A, TXC0 (Bit 6) | 3. Flag indicating that the entire transmission has finished | 4. No | 5. - |
+| 1. Tx Data Register Empty | 2. UCSR0A, UDRE0 (Bit 5) | 3. Flag indicating that the transmit register is ready for new data | 4. Yes | 5. Runtime |
+| 1. Transmit Complete | 2. UCSR0A, TXC0 (Bit 6) | 3. Flag indicating that the entire transmission has finished | 4. No | 5. - |
 | 1. Mode Selection | 2. UCSR0C, UMSEL0[1:0] (Bits 7:6) | 3. Selects asynchronous, synchronous, or SPI mode | 4. Yes | 5. Initialisation |
 | 1. Character Size | 2. UCSR0B, UCSZ02 (Bit 2) and UCSR0C, UCSZ01:0 (Bits 2:1) | 3. Selects the number of data bits in each UART frame | 4. Yes | 5. Initialisation |
 | 1. Clock Polarity | 2. UCSR0C, UCPOL0 (Bit 0) | 3. Sets the clock polarity when using synchronous USART | 4. No | 5. - |
@@ -28,10 +28,10 @@ iv) The baud rate: rate of bits transmission per second
 | 1. Parity Error | 2. UCSR0A, UPE0 (Bit 2) | 3. Indicates that received data has a parity error | 4. No | 5. - |
 
 
-# Meeting: Mon, 10th Aug, 2026, 1:00 pm 
-# Objective: Complete lab work before our 12/08 lab
-# Start time: 1:10 pm
-# Notes: 
+### Meeting: Mon, 10th Aug, 2026, 1:00 pm 
+### Objective: Complete lab work before our 12/08 lab
+### Start time: 1:10 pm
+### Notes: 
 
 # Q2.2: Using the datasheet, what is the appropriate UBRR value? Note that our system clock is 2MHz.
 UBRR = (fosc / 16 * Baud rate) - 1 
