@@ -51,6 +51,26 @@ i) Test if the UDRE0 bit is 1:          if( UCSR0A & (1 << UDRE0 )) {
 ii) Write a 1 (set) to the TXEN0 bit:       UCSR0B |= (1 << TXEN0);
 iii) Write a 0 (clear) to the UCPOL0 bit:   UCSR0C &= ~(1 << UCPOL0);}
 
+# Q3.1: On the ATmega328P, how many bits of data can be stored in a variable of
+# each of these types:
+char: 8 bits    uint8_t: 8 bits
+int: 16 bits    uint16_t: 16 bits
+int8_t: 8 bits  float: 32 bits
+
+# Q3.2: What is the size of the UDR0 register? 
+8 bits
+
+# Q3.3: What is the largest number we can transmit? 
+2^8 - 1 = 255
+
+# Q3.4: What decimal numbers correspond to the word “HELLO”?
+HELLO = 72, 69, 76, 76, 79
+
+# Q3.5: Fill in the blanks below to describe how to send a number to a terminal:
+We can extract the individual digits of a number by using the modulo
+operator. Then we encode an individual digit into its ASCII equivalent by simply
+adding the decimal number 48. Then we iterate through each digit of the
+number using a loop, writing each character to the UDR0 register.
 
 # Pseudo Code for Pre-Lab
 
