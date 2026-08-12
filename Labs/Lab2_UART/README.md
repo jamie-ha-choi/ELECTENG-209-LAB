@@ -146,6 +146,9 @@ d. Increment the array index (counter)
 
 See Transmit_Primes.c and Q4.7 Output.png
 
+# Q4.8: Complete the flowchart below that describes the flow of your program code:
+See Q4.8 Flowchart.png
+
 # Pseudo Code for Pre-Lab
 
 - You can use a simple algorithm that iterates through all the numbers up to 300, and checks if they can be exactly divided by numbers smaller than it using the modulo operator
