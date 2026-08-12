@@ -72,6 +72,66 @@ operator. Then we encode an individual digit into its ASCII equivalent by simply
 adding the decimal number 48. Then we iterate through each digit of the
 number using a loop, writing each character to the UDR0 register.
 
+# Q4.1: Assuming that we can begin transmitting a UART packet immediately after
+# the previous one ends, work out the length of time required to send each of these:
+A single character: 
+UART has 1 start bit, 8 data bits, 0 parity bits, 1 stop bit = 10 bits
+10/9600 = 0.0010417s = 1.04ms
+
+A 3-digit number: 
+3 * 10 = 30 bits
+30/9700 = 0.003125s = 3.125ms
+
+# Q4.2: Now, also assuming that we need to send a comma character and a space
+# character between each number, work out the length of time to send each of
+# these:
+Three 3-digit numbers (there are 2 commas and 2 spaces): 
+9 digit characters + 2 commas + 2 spaces = 13 characters
+(13 * 10) / 9600 = 0.01354s = 13.54ms 
+
+The entire primes list from pre-lab (assume all 3-digits): 
+62 primes, 3 characters per prime
+61 gaps, 2 characters per gap
+(62 * 3) + (61 * 2) = 308 characters
+(308 * 10) / 9600 = 0.3208s = 320.8ms
+
+# Q4.3: Write a usart_init(uint16_t ubrr) function which sets up the USART
+# peripheral as determined in Part 2. Of the five control registers, how many could
+# be left with their initial values? 
+
+void usart_init(uint16_t ubrr)
+{
+    UBRR0H = (uint8_t)(ubrr >> 8);
+    UBRR0L = (uint8_t)ubrr;
+
+    UCSR0B = (1 << TXEN0);
+}
+
+UBRR0H = same
+UBRR0L = 12 (baud rate)
+UCSR0A = same
+UCSR0B = enable transmitter (TXEN0 = 1)
+UCSR0C = same
+
+3 control registers can be left with their initial values   
+
+# Q4.4: Write a usart_transmit(uint8_t data) function which handles transmission
+# of a single number through the USART peripheral. The important steps are to:
+1) Check bit UDRE0 (USART Data Register Empty) of register UCSR0A and wait if it is 0.
+2) Load data variable into the UDR0 register
+
+void usart_transmit(uint8_t data)
+{
+    while (!(UCSR0A & (1 << UDRE0)))
+    {
+    }
+
+    UDR0 = data;
+}
+
+# Q4.5
+See Q4.5 Output.png
+
 # Pseudo Code for Pre-Lab
 
 - You can use a simple algorithm that iterates through all the numbers up to 300, and checks if they can be exactly divided by numbers smaller than it using the modulo operator
