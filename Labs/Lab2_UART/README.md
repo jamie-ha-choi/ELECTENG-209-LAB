@@ -130,7 +130,21 @@ void usart_transmit(uint8_t data)
 }
 
 # Q4.5
-See Q4.5 Output.png
+See Transmist_3.c and Q4.5 Output.png
+
+# Q4.6
+See Transmist_345.c and Q4.6 Output.png
+
+# Q4.7: Modify your program so that it follows these steps:
+1) Call usart_init(ubrr) using the UBRR value calculated in Q2.2
+2) Using the pre-lab code, create an array with the prime numbers
+3) Inside the while(1) loop, set up a for loop
+a. Extract the individual characters of each prime number
+b. Call usart_transmit(character) as needed
+c. Call usart_transmit(character) for the comma and space as needed
+d. Increment the array index (counter)
+
+See Transmit_Primes.c and Q4.7 Output.png
 
 # Pseudo Code for Pre-Lab
 
