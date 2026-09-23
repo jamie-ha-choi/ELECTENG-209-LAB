@@ -7,7 +7,15 @@
 
 ISR(TIMER0_COMPA_vect)
 {
-	led_toggle();
+	static uint8_t count = 0;
+
+	count++;
+
+	if (count >= 10) // legit just doing the same thing 10 times so its 100 
+	{
+		led_toggle();
+		count = 0;
+	}
 }
 
 void timer0_init()
