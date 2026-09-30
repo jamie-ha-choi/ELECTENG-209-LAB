@@ -8,6 +8,7 @@
 #define F_CPU 2000000UL
 #include <avr/io.h>
 #include <util/delay.h>
+#include <avr/interrupt.h>
     
 uint8_t seg_pattern[10] = {
 	0x3F,   // 0
