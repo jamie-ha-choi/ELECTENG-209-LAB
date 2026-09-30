@@ -5,65 +5,67 @@
  * Author : disiz
  */ 
 
+#define F_CPU 2000000UL
+
 #include <avr/io.h>
-#include <stdint.h>
+#include <avr/interrupt.h>
+#include <util/delay.h>
 
-void init_display(void)
+#include "display.h"
+
+
+void timer0_init(void)
 {
-	// SH_CP, SH_DS, SH_ST outputs
-	DDRC |= (1 << PC3) | (1 << PC4) | (1 << PC5);
+	// ctc
+	TCCR0A = (1 << WGM01);
 
-	// Ds1-Ds4 outputs
-	DDRD |= (1 << PD4) | (1 << PD5) | (1 << PD6) | (1 << PD7);
+	// 256 prescaler
+	TCCR0B = (1 << CS02);
 
-	// SH_CP and SH_ST initially LOW
-	PORTC &= ~((1 << PC3) | (1 << PC5));
+	// about 10 ms
+	OCR0A = 77;
 
-	// Ds1-Ds3 OFF
-	PORTD |= (1 << PD4) | (1 << PD5) | (1 << PD6);
+	// enable timer0 interrupt
+	TIMSK0 |= (1 << OCIE0A);
 
-	// Ds4 ON
-	PORTD &= ~(1 << PD7);
+	// enable global interrupts
+	sei();
 }
 
 
-void send_next_character_to_display(void)
+// called approximately every 10 ms
+ISR(TIMER0_COMPA_vect)
 {
-	uint8_t character = 0x07;
-
-	PORTC &= ~(1 << PC3);   // SH_CP LOW
-	PORTC &= ~(1 << PC5);   // SH_ST LOW
-
-	for (int8_t i = 7; i >= 0; i--)
-	{
-		if (character & (1 << i))
-		{
-			PORTC |= (1 << PC4);
-		}
-		else
-		{
-			PORTC &= ~(1 << PC4);
-		}
-
-		// Shift current bit in
-		PORTC |= (1 << PC3);
-		PORTC &= ~(1 << PC3);
-	}
-
-	// Latch outputs
-	PORTC |= (1 << PC5);
-	PORTC &= ~(1 << PC5);
+	send_next_character_to_display();
 }
 
 
 int main(void)
 {
+	uint16_t counter = 0;
+
+	// set up display
 	init_display();
 
-	send_next_character_to_display();
+	// set up 10 ms Timer0 interrupt
+	timer0_init();
+
 
 	while (1)
 	{
+		// convert current counter into 4 display characters
+		seperate_and_load_characters(counter, 255);
+
+		// hold value for 400 ms
+		_delay_ms(400);
+
+		counter++;
+
+		// 9999 -> 0
+		if (counter > 9999)
+		{
+			counter = 0;
+		}
 	}
 }
 
