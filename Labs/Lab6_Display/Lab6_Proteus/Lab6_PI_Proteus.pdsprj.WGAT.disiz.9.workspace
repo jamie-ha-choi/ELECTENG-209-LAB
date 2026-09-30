@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<WORKSPACE>
+ <FRAME activeWindow="0">
+  <PLACEMENT>01d9d0cb00030000fffffffffffffff70000078000000438000000a40000002c000006db0000042a00000000020000000780000000000000001d0000077f00000437</PLACEMENT>
+  <WINDOW module="ISIS" mode="00050a01" type="default" index="0"/>
+ </FRAME>
+ <MODULE name="ARES">
+  <editor gridmode="2" snap="0" zoom="10" scale="10" xcursor="0" metric="0" snapidx="3" gridmajor="0" flipped="0" gridminor="0" orgmode="0" snaprange="0">
+   <centre x="0" y="0"/>
+   <origin x="0" y="0"/>
+   <world y2="12700000" x1="-15240000" y1="-12700000" x2="15240000"/>
+  </editor>
+ </MODULE>
+ <MODULE name="ISIS">
+  <editor gridmode="2" snap="254000" zoom="-1" scale="94" xcursor="0" metric="0" snapidx="2" gridmajor="2540000" flipped="0" gridminor="254000" orgmode="0" snaprange="135106">
+   <centre x="-3302000" y="4064000"/>
+   <origin x="0" y="0"/>
+   <world y2="12192000" x1="-18542000" y1="-12192000" x2="18542000"/>
+  </editor>
+ </MODULE>
+ <MODULE name="VSMEDIT">
+  <EDITOR/>
+ </MODULE>
+ <MODULE name="VSMDEBUG">
+  <PWI>
+   <POPUP flags="00000082" h="200" pid="0" iid="-1" x="10" y="25" w="800">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP flags="000000b2" h="200" pid="1" iid="-1" x="30" y="45" w="350">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP flags="000000a2" h="200" pid="2" iid="-1" x="50" y="65" w="800">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP flags="00000000" h="848" pid="1" iid="4" x="70" y="85" w="1378">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP flags="00000022" h="250" pid="0" iid="2" x="90" y="105" w="450">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP flags="00000008" h="16" pid="3" iid="1" x="110" y="125" w="30">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP flags="0000000a" h="30" pid="10" iid="1" x="0" y="0" w="100">
+    <PROPERTIES>
+     <ITEM name="DataType">2</ITEM>
+     <ITEM name="DispChars">Yes</ITEM>
+     <ITEM name="DispFormat">2</ITEM>
+     <ITEM name="ShowChanges">Yes</ITEM>
+     <ITEM name="ShowToolTips">Yes</ITEM>
+     <ITEM name="TopLineAddress">00000000</ITEM>
+    </PROPERTIES>
+   </POPUP>
+   <POPUP flags="0000000a" h="32" pid="6" iid="1" x="150" y="165" w="8">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP flags="0000000a" h="32" pid="7" iid="1" x="170" y="185" w="16">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP flags="80000000" h="32" pid="14" iid="1" x="190" y="205" w="16">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP flags="0000000a" h="32" pid="4" iid="1" x="210" y="225" w="16">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP flags="0000000a" h="8" pid="13" iid="1" x="230" y="245" w="16">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP flags="0000000b" h="400" pid="1" iid="1" x="250" y="265" w="600">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP flags="0000000b" h="300" pid="2" iid="1" x="270" y="285" w="300">
+    <PROPERTIES/>
+   </POPUP>
+  </PWI>
+ </MODULE>
+</WORKSPACE>

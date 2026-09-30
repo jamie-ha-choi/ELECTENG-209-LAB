@@ -57,6 +57,36 @@ int main(void)
     while (1) 
     {
 		display_digit(counter);
+		uint8_t reset_pressed = 0;
+
+
+		// wait 1 sec while checking every 0.1
+		for (uint8_t i = 0; i < 10; i++)
+		{
+			_delay_ms(100);
+
+			// if pb is low 
+			if (!(PINB & (1 << PB7)))
+			{
+				counter = 0;
+				reset_pressed = 1;
+				break;
+			}
+		}
+		// if button pressed reset
+		if (reset_pressed)
+		{
+			continue;
+		}
+
+		// +1
+		counter++;
+
+		// after 9 go back to 0
+		if (counter > 9)
+		{
+			counter = 0;
+		}
     }
 }
 
